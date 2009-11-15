@@ -1,0 +1,39 @@
+<%= render :partial => 'admin/shared/wordsmith_sub_menu' %>
+
+<h1><%= t('wordsmith_settings') %></h1>
+
+<% form_tag(admin_wordsmith_settings_path, :method => :put) do -%>
+
+
+  
+  <p>
+	<label><%= t("wordsmith_posts_per_page") %></label>
+	<%= text_field_tag('preferences[wordsmith_posts_per_page]', Spree::Config[:wordsmith_posts_per_page]) %>
+  </p>
+  <p>
+	<label><%= t('wordsmith_posts_recent') %></label>
+	<%= text_field_tag('preferences[wordsmith_posts_recent]', Spree::Config[:wordsmith_posts_recent])%>
+  </p>	
+  
+  <p>
+	<label><%= t('wordsmith_mailer_from') %></label>
+	<%= text_field_tag('preferences[wordsmith_mailer_from]', Spree::Config[:wordsmith_mailer_from])%>
+  </p>	
+  
+  <p>
+  <label><%= t('wordsmith_post_status_default') %></label>
+  <%= radio_button_tag('preferences[wordsmith_post_status_default]', 1, Spree::Config[:wordsmith_post_status_default]) %> <%= t("publish") %>
+  <%= radio_button_tag('preferences[wordsmith_post_status_default]', 0, Spree::Config[:wordsmith_post_status_default] ) %> <%= t("draft") %>
+  </p>
+    	  
+  <p>
+  <label><%= t('wordsmith_post_comment_default') %></label>
+  <%= radio_button_tag('preferences[wordsmith_post_comment_default]', 1, Spree::Config[:wordsmith_post_comment_default]) %> <%= t("open") %>
+  <%= radio_button_tag('preferences[wordsmith_post_comment_default]', 0, Spree::Config[:wordsmith_post_comment_default] ) %> <%= t("closed") %>
+  </p>
+
+  <p class="form-buttons">
+    <%= button t('update') %> 
+    <%= t("or") %> <%= link_to t("cancel"), admin_wordsmith_settings_url %>
+  </p>
+<% end -%>

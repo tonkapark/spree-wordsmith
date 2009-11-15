@@ -1,0 +1,9 @@
+<div class="comment span-18">
+  <div class="body span-12">
+    <p><%= auto_link(safe(comment.body)) %></p>
+  </div>
+  
+  <div class="prepend-1 span-5 last">
+    <%= render :partial => 'comments/meta', :locals => {:comment => comment} %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<% content_for :sub_menu do %>
+  <ul id="sub_nav">
+    <%= tab :wordsmith_settings %>
+    <%= tab :posts %>
+    <%= tab :comments %>
+    <%= tab :posts, :label => t("view_blog"), :route => :posts, :css_class => 'last' %>
+    ,
+  </ul>
+<% end %>

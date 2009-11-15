@@ -1,0 +1,26 @@
+<%= render :partial => 'admin/shared/wordsmith_sub_menu' %>
+
+<h1><%= t("posts") %></h1>
+
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Author</th>    
+    <th>Tags</th>
+    <th>Comments</th>
+    <th>Date</th>
+  </tr>
+  <% for post in @posts %>
+    <tr>
+      <td><%= link_to h(post.title), [:edit,:admin,post] %></td>      
+      <td><%= link_to post.user.display_name, [:admin, post.user] %></td>
+      <td><%= post.tag_list %></td>
+      <td><%= post.comments_count %></td>
+      <td><%= post.published_at %></td>
+      <td><%= link_to t("view"), post %> | <%= link_to t("edit"), [:edit, :admin, post] %> | <%= link_to t("delete"), [:admin, post], :confirm => 'Are you sure?', :method => :delete %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to t("new-post"), new_admin_post_path %></p>

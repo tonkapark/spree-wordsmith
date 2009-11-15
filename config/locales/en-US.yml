@@ -1,0 +1,33 @@
+---
+en-US:
+    Wordsmith: Wordsmith
+    posts: Posts
+    post: Post
+    comment: Comment
+    comments: Comments
+    new_comment: New Comment
+    comments_closed: Comments are closed
+    recent_posts: Recent Posts
+    new-post: New Post
+    view: View
+    title: Title
+    permalink: Permalink
+    body: Body
+    excerpt: Excerpt
+    author: Author
+    publish_post: Publish Post
+    comment_status: Comment Status
+    tags: Tags
+    tags_hint: Enter tags separated by a comma
+    wordsmith_settings: Wordsmith Settings
+    wordsmith_permalink: Slug used in url to blog home
+    wordsmith_posts_per_page: Posts displayed on blog home
+    wordsmith_posts_recent: Posts listed in recent post lists
+    wordsmith_post_status_default: Status default for new posts
+    wordsmith_post_comment_default: Comment status default for new posts
+    wordsmith_mailer_from: From email address for comment notifications to post authors
+    publish: Publish
+    draft: Draft
+    open: Open
+    closed: Closed
+    view_blog: View Blog

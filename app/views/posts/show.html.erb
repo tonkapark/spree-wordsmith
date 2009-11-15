@@ -1,0 +1,23 @@
+<% content_for :sidebar do %>
+  <%= render :partial => 'shared/recent_articles'%>
+<% end %>
+
+<%= render :partial => @post %>
+
+
+<div id="comments">
+
+  <% unless @post.comments.empty? %>
+    <h2><%= pluralize @post.comments_count, t("comment"), t("comments") %></h2>
+    <% @post.comments.each do |comment| %>
+      <%= render :partial => comment %>      
+    <% end %>
+  <% end %>
+  
+<% if @post.commentable == 1 %>
+  <h2><%= t("new_comment") %></h2>
+  <%= render :partial => 'comments/form', :object => @comment = Comment.new, :locals => { :button_name => 'Create'}%>
+<% else %>
+  <p><%= t("comments_closed") %></p>
+<% end %>
+</div>

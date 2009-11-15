@@ -1,0 +1,6 @@
+<h3><%= t("recent_posts") %></h3>
+<ul>
+<% post_link_list().each do |link| -%>
+  <li><%= link_to link.name, link.url %></li>
+<% end -%>
+</ul>

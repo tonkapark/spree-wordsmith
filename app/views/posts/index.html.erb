@@ -1,0 +1,9 @@
+<% content_for :sidebar do %>
+  <%= render :partial => 'shared/recent_articles'%>
+<% end %>
+
+<% for post in @posts %>
+	<%= render :partial => post %>
+<% end %>
+
+<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>

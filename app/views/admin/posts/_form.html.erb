@@ -1,0 +1,45 @@
+
+<% form_for([:admin, @post]) do |f| %>
+  <%= f.error_messages %>
+  <div style="float:left; margin-right: 20px">
+    <p>
+      <%= f.label :title, t("title") %><br /> 
+      <%= f.text_field :title %> 
+    </p>
+  <% unless f.object.new_record? %>
+    <p>
+      <%= f.label :permalink, t("permalink") %><br />
+      <%= f.text_field :permalink %>
+    </p>
+  <% end %>
+    <p>
+      <%= f.label :body, t("body") %><br />
+      <%= f.text_area :body_raw %>
+    </p>
+    <p>
+      <%= f.label :excerpt, t("excerpt") %><br />
+      <%= f.text_area :excerpt, { :rows=>"3", :style => "height:100%;" } %>
+    </p>
+  
+  </div>
+  <div style="float:left; margin-right: 0;">
+    <p>
+      <%= f.label :user_id, t("author") %>
+      <%= f.select :user_id, User.all.collect {|r| [ r.display_name, r.id]} %>
+    </p>
+  
+    <p>
+      <%= f.label :is_active, t("status") %>: <%= f.radio_button :is_active, 1 %><%= t("publish") %> <%= f.radio_button :is_active, 0 %><%= t("draft") %>
+    </p>
+    <p>
+      <%= f.label :commentable, t("comment_status") %>: <%= f.radio_button :commentable, 1 %><%= t("open") %> <%= f.radio_button :commentable, 0 %><%= t("closed") %>
+    </p>    
+    <p>
+      <%= f.label :tag_list, "#{t("tags")} (#{t("tags_hint")}):" %> <br/> <%= f.text_field :tag_list %>
+    </p>
+    <p>
+      <%= f.submit button_name %> | <%= link_to t("cancel"), admin_posts_path %><%- unless f.object.new_record? -%> | <%= link_to t("destroy"), [:admin, @post], :confirm => 'Are you sure?', :method => :delete %> <%- end -%>
+    </p>
+  </div>  
+<% end %>
+<br class="clear"/>

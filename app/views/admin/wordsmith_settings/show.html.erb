@@ -1,0 +1,42 @@
+<%= render :partial => 'admin/shared/wordsmith_sub_menu' %>
+
+<h1><%= t("wordsmith_settings") %></h1>
+
+<table>
+  <tr>
+    <th scope="row"><%= t("wordsmith_permalink") %>:</th> 
+    <td><%=  Spree::Config[:wordsmith_permalink] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t("wordsmith_posts_per_page") %>:</th> 
+    <td><%=  Spree::Config[:wordsmith_posts_per_page] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t("wordsmith_posts_recent") %>:</th> 
+    <td><%=  Spree::Config[:wordsmith_posts_recent] %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row"><%= t("wordsmith_mailer_from") %>:</th> 
+    <td><%=  Spree::Config[:wordsmith_mailer_from] %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row"><%= t("wordsmith_post_status_default") %>:</th> 
+    <td><%= (Spree::Config[:wordsmith_post_status_default] ? t("publish") : t("draft")) %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row"><%= t("wordsmith_post_comment_default") %>:</th> 
+    <td><%= (Spree::Config[:wordsmith_post_comment_default] ? t("open") : t("closed")) %>
+</td>
+  </tr>
+  
+  
+  
+
+</table>
+
+<p><%= link_to_with_icon 'edit', t("edit"), edit_admin_wordsmith_settings_path %></p>
+
+
