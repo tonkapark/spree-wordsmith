@@ -1,7 +1,10 @@
 
 	<div id="post-<%= post.id %>" class="post">
-		<h2 class="post-title"><%= link_to (post.title == '' ? '[Untitled]' : h(post.title)), post %></h2>
-		<div class="post-date"><%= post.published_at.strftime("%B %d, %Y") %></div>
+		<div class="post-date"><%= post.published_at.strftime("%A, %B %d, %Y") %></div>
+		<h2 class="post-title"><%= link_to_unless_current (post.title == '' ? '[Untitled]' : h(post.title)), post %></h2>
+		<div class="post-meta">
+		  <% unless post.user.display_name.blank? %>By <%= post.user.display_name %> <% end %> - <%= link_to pluralize(post.comments_count, t("comment"), t("comments")), post_path(post, :anchor => "comments") %>
+		</div>
 		<div class="post-content"><%= post.body %></div>
-		<div class="tags"><%= linked_tag_list(post.tags) %></p></div>
+		<div class="post-meta"><%= t("tags") %>: <%= linked_tag_list(post.tags) %></div>
 	</div>

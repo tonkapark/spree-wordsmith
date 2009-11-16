@@ -1,7 +1,0 @@
-    <div class="meta">    
-      
-      <h3><%= comment.name.blank? ? '[Anonymous]' : comment.name %></h3> 
-      <% if comment.url? %><h4><%= comment.url %></h4><% end %>
-      <p><%= time_ago_in_words comment.updated_at %></p>      
-    
-    </div>

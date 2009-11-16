@@ -38,7 +38,7 @@
       <%= f.label :tag_list, "#{t("tags")} (#{t("tags_hint")}):" %> <br/> <%= f.text_field :tag_list %>
     </p>
     <p>
-      <%= f.submit button_name %> | <%= link_to t("cancel"), admin_posts_path %><%- unless f.object.new_record? -%> | <%= link_to t("destroy"), [:admin, @post], :confirm => 'Are you sure?', :method => :delete %> <%- end -%>
+      <%= f.submit button_name, :disable_with => 'Please wait...' %> | <%= link_to t("cancel"), admin_posts_path %><%- unless f.object.new_record? -%> | <%= link_to t("destroy"), [:admin, @post], :confirm => 'Are you sure?', :method => :delete %> <%- end -%>
     </p>
   </div>  
 <% end %>

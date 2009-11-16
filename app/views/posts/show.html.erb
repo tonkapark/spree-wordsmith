@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_tags 'compiled/wordsmith' %>
+<% end %>
+
 <% content_for :sidebar do %>
   <%= render :partial => 'shared/recent_articles'%>
 <% end %>
@@ -13,8 +17,10 @@
       <%= render :partial => comment %>      
     <% end %>
   <% end %>
-  
+
+ 
 <% if @post.commentable == 1 %>
+  <hr />
   <h2><%= t("new_comment") %></h2>
   <%= render :partial => 'comments/form', :object => @comment = Comment.new, :locals => { :button_name => 'Create'}%>
 <% else %>
