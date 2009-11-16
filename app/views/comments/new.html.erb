@@ -1,0 +1,7 @@
+<h1>New comment</h1>
+
+<%= error_messages_for :comment %>
+
+<%= render :partial => 'form', :locals => { :button_name => "Create"} %>
+
+<%= link_to 'Return to Post', post_comments_path(@post) %>
