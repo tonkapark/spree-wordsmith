@@ -61,8 +61,6 @@ Default settings are set in the wordsmith_extension.rb file. There is also an wo
 TODO
 -----
 
-- comment error handling is broken.
-
 - improve permalinks for posts
 
 - wysiwyg editor for blog posts
@@ -74,8 +72,6 @@ TODO
 - filtering by tags
 
 - tag sidebar partial
-
-- improved html for posts for easier styling.
 
 - tests
 
