@@ -1,10 +1,8 @@
 <% content_for :head do %>
-  <%= stylesheet_tags 'compiled/wordsmith' %>
+  <link rel="alternate" type="application/rss+xml" title="#{t("post")} #{t("comments")} RSS" href="<%= post_url(@post, :format => :rss) %>" />
 <% end %>
-
-<% content_for :sidebar do %>
-  <%= render :partial => 'shared/recent_articles'%>
-<% end %>
+   
+<%= render :partial => 'shared/wordsmith_content_for'%>
 
 <%= render :partial => @post %>
 
@@ -12,7 +10,8 @@
 <div id="comments">
 
   <% unless @post.comments.empty? %>
-    <h2><%= pluralize @post.comments_count, t("comment"), t("comments") %></h2>
+    <h2><%= link_to image_tag('icons/feed.gif', :alt => "#{t("post")} #{t("comments")} RSS", :size => '16x16'), post_path(@post, :format => 'rss') %>
+    <%= pluralize @post.comments_count, t("comment"), t("comments") %></h2>
     <% @post.comments.each do |comment| %>
       <%= render :partial => comment %>      
     <% end %>
@@ -22,7 +21,7 @@
 <% if @post.commentable == 1 %>
   <hr />
   <h2><%= t("new_comment") %></h2>
-  <%= render :partial => 'comments/form', :object => @comment = Comment.new, :locals => { :button_name => 'Create'}%>
+  <%= render :partial => 'comments/form' %>
 <% else %>
   <p><%= t("comments_closed") %></p>
 <% end %>

@@ -1,7 +1,18 @@
-<h1>New comment</h1>
+<% content_for :head do %>
+  <%= stylesheet_tags 'compiled/wordsmith' %>
+<% end %>
 
-<%= error_messages_for :comment %>
+<% content_for :sidebar do %>
+  <%= render :partial => 'shared/recent_articles'%>
+<% end %>
 
-<%= render :partial => 'form', :locals => { :button_name => "Create"} %>
 
-<%= link_to 'Return to Post', post_comments_path(@post) %>
+<h1><%= params[:preview_button] ? "Comment Preview" : "New Comment" %></h1>
+
+<% if params[:preview_button] %>
+  <div id="comments">
+    <%= render @comment %>
+  </div>
+<% end %>  
+
+<%= render :partial => 'form' %>

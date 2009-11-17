@@ -2,7 +2,7 @@
 # require_dependency 'application'
 
 class WordsmithExtension < Spree::Extension
-  version "1.0"
+  version "1.1"
   description "A blog/news extension for spree"
   url "http://tonkapark.com/"
 
@@ -34,6 +34,7 @@ class WordsmithExtension < Spree::Extension
     # make your helper avaliable in all views
     Spree::BaseController.class_eval do
       helper PostsHelper
+      helper CommentsHelper
     end
     
     AppConfiguration.class_eval do
@@ -43,6 +44,7 @@ class WordsmithExtension < Spree::Extension
       preference :wordsmith_post_comment_default, :integer, :default => 1
       preference :wordsmith_post_status_default, :integer, :default => 0
       preference :wordsmith_mailer_from, :string, :default => 'blog@localhost.com'
+      preference :wordsmith_rss_description, :string, :default => 'Martha Daniels blog posts on architectural concepts and home design.'
     end
     
     # TODO: Not sure I like this solution for the long term because you cannot control placement in view.
@@ -57,8 +59,7 @@ class WordsmithExtension < Spree::Extension
         has_many :posts
         has_many :comments      
         
-        attr_accessible :display_name
-        validates_length_of :display_name, :maximum => 200
+        attr_accessible :display_name        
     end
     
     

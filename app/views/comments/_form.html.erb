@@ -1,18 +1,22 @@
 
 
-<% form_for([@post,@comment]) do |f| %>
-  
+<% form_for @comment do |f| %>
+  <%= error_messages_for :comment %>
+  <div>
+    <%= f.hidden_field :post_id %>
+  </div>
+
   <% "TODO: Switch to capture spree logged in users and supply name and email from current_user." %>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %><span class="info">(required)</span><br />
     <%= f.text_field :name %>   
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :email %><span class="info">(not shown)</span><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :url, "Website" %> <br />
+    <%= f.label :url, "Website URL" %> <br />
     <%= f.text_field :url %>
   </p>
 
@@ -20,6 +24,7 @@
     <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.submit button_name %>
+    <%= f.submit "Preview", :name => 'preview_button' %>
+    <%= f.submit "Submit" %>
   </p>
 <% end %>

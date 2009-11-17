@@ -1,10 +1,9 @@
 <% content_for :head do %>
-  <%= stylesheet_tags 'compiled/wordsmith' %>
-<% end %>
+  <link rel="alternate" type="application/rss+xml" title="<%= t("posts") %> RSS" href="<%= posts_url(:format => 'rss') %>" />
+<% end %>   
+   
+<%= render :partial => 'shared/wordsmith_content_for'%>
 
-<% content_for :sidebar do %>
-  <%= render :partial => 'shared/recent_articles'%>
-<% end %>
 
 <div class="posts">
   <% for post in @posts %>

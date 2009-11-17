@@ -27,7 +27,10 @@ en-US:
     wordsmith_post_comment_default: Comment status default for new posts
     wordsmith_mailer_from: From email address for comment notifications to post authors
     publish: Publish
+    published: Published    
     draft: Draft
     open: Open
     closed: Closed
     view_blog: View Blog
+    comments_for: comments for
+    recent: Recent

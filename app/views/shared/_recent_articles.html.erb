@@ -3,4 +3,5 @@
 <% post_link_list().each do |link| -%>
   <li><%= link_to link.name, link.url %></li>
 <% end -%>
+<li><%- link_to posts_path(:format => 'rss') do -%><%= image_tag('icons/feed.gif', :alt => "#{t("posts")} RSS", :size => '16x16') %> RSS Feed <%- end -%></li>
 </ul>

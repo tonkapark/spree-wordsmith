@@ -12,11 +12,11 @@
   </tr>
   <% for post in @posts %>
     <tr>
-      <td><%= link_to h(post.title), [:edit,:admin,post] %></td>      
+      <td><%= link_to h(post.title), [:edit,:admin,post] %> (<%= post.is_active == 1 ? t("published") : t("draft") %>) </td>      
       <td><%= link_to post.user.display_name, [:admin, post.user] %></td>
       <td><%= post.tag_list %></td>
       <td><%= post.comments_count %></td>
-      <td><%= post.published_at %></td>
+      <td><%= (post.published_at.blank? ? post.updated_at : post.published_at).strftime("%B %d, %Y at %I:%M%p") %></td>
       <td><%= link_to t("view"), post %> | <%= link_to t("edit"), [:edit, :admin, post] %> | <%= link_to t("delete"), [:admin, post], :confirm => 'Are you sure?', :method => :delete %></td>
 
     </tr>

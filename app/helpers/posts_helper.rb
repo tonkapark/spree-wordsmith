@@ -1,9 +1,5 @@
 module PostsHelper 
   
-  def safe(txt)
-    sanitize(txt, :tags => %w(a b strong em i code), :attributes => %w(href)).split("\n").join("\n<br />")
-  end
-  
   def linked_tag_list(tags)
     tags.collect {|tag| link_to(tag.name, posts_path(:tag => tag.name))}.join(", ")
   end

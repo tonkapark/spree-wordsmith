@@ -1,4 +1,4 @@
-Wordsmith
+Wordsmith 1.1
 =========
 
 A blog/news extension for spree. Includes comments. Chose the name wordsmith since spree-blog already exists. I decided I wanted something different so came up with the unique name.
@@ -15,13 +15,16 @@ rake db:migrate
 
 All authors for the blog should be given a display name in the admin/users edit form. A new display_name field is added to the spree users table. 
 
+Edit preferences in wordsmith_extension.rb
+
+script/server
 
 Posts
 -------
 
 New Posts can be created in the admin section http://localhost:3000/admin/posts
 
-Posts can be given unique permalinks once they have been initially created.
+Posts have unique permalinks created for all new post entries. The permalink can be modified after initial save.
 
 By default the excerpt will be created with the first 50 characters of the body.
 
@@ -49,6 +52,18 @@ View the blog at http://localhost:3000/blog or the defined slug from the prefere
 
 A partial for the sidebar is available that shows recent posts.
  
+
+RSS
+-----
+
+There are 3 rss feeds. 
+
+http://localhost:3000/blog.rss - All Posts
+
+http://localhost:3000/<post-name>.rss - Comments for individual post
+
+http://localhost:3000/comments.rss - Recent comments for entire site
+
 
 Settings
 ------------
