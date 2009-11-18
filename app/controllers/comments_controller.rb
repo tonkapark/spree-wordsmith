@@ -10,7 +10,7 @@ class CommentsController < Spree::BaseController
   
   def new
     flash[:notice] = "To submit a comment, please go to a specific post first."
-    redirect_to root_url
+    redirect_to posts_url
   end
   
   def create

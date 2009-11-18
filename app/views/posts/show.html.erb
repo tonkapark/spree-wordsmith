@@ -1,4 +1,5 @@
 <% content_for :head do %>
+  <%= javascript_include_tag 'jquery', 'wordsmith' %>
   <link rel="alternate" type="application/rss+xml" title="#{t("post")} #{t("comments")} RSS" href="<%= post_url(@post, :format => :rss) %>" />
 <% end %>
    

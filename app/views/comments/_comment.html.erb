@@ -4,9 +4,16 @@
     <%- unless comment.created_at.nil? -%>
     <span><%= comment.created_at.strftime("%B %d, %Y at %I:%M%p") %></span>
     <%- end -%>
+  <%- if current_user -%>
+  <span>  <%= link_to "Edit", edit_comment_path(comment) %> |
+    <%= link_to "Destroy", comment, :confirm => 'Are you sure?', :method => :delete, :class => 'destroy' %>
+    </span>
+  <%- end -%>  
+    
   </div>
 
   <div class="body">
     <%= format_comment(comment.body) %>
   </div>
+  
 <% end %>

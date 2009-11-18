@@ -10,7 +10,7 @@ class WordsmithExtension < Spree::Extension
 
   def self.require_gems(config)
     config.gem 'is_taggable'
-    config.gem 'RedCloth', :version => '4.2.2'
+    config.gem 'RedCloth'
   end
   
   def activate

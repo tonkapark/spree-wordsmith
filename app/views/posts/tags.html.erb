@@ -1,0 +1,18 @@
+<%= render :partial => 'shared/wordsmith_content_for'%>
+
+<h1><%= "'#{params[:tag_name]}' #{t("posts")}" %></h1>
+
+<div class="posts">
+  <% unless @posts.empty? %>
+  <%= render @posts %>
+  <% else %>
+  <p><%= t("no_posts_found") %>.</p>
+  <% end %>
+</div>
+
+
+<p class="pagination">
+  <%= link_to h('< Previous Page'), :overwrite_params => { :page => @posts.previous_page } if @posts.previous_page %>
+  <%= "|" if @posts.previous_page && @posts.next_page %>
+  <%= link_to h('Next Page >'), :overwrite_params => { :page => @posts.next_page } if @posts.next_page %>
+</p>

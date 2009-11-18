@@ -19,6 +19,25 @@ class Post < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = Spree::Config[:wordsmith_posts_per_page]
 
+
+
+  #should be part of is_taggable
+  #pulled from http://github.com/gnugeek/is_taggable/commit/10b590865f0effeed20f00e3581a7aed8a6bd3b4
+  def self.find_all_tagged_with(tag_or_tags, conditions=[])
+    return [] if tag_or_tags.nil? || tag_or_tags.empty?
+    case tag_or_tags
+    when Array, IsTaggable::TagList
+      all(:include => ['tags', 'taggings'], :conditions => conditions ).select { |record| tag_or_tags.all? { |tag| record.tags.map(&:name).include?(tag) } } || []
+    else
+      all(:include => ['tags', 'taggings'], :conditions => conditions).select { |record| record.tags.map(&:name).include?(tag_or_tags)  } || []
+    end
+  end
+  
+
+
+
+
+
   def format_markup
     self.body = RedCloth.new(self.body_raw,[:sanitize_html, :filter_html]).to_html
     
