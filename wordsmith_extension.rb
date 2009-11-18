@@ -2,7 +2,7 @@
 # require_dependency 'application'
 
 class WordsmithExtension < Spree::Extension
-  version "1.1"
+  version "1.2"
   description "A blog/news extension for spree"
   url "http://tonkapark.com/"
 

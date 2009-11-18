@@ -1,4 +1,4 @@
-Wordsmith 1.1
+Wordsmith 1.2
 =========
 
 A blog/news extension for spree. Includes comments. Chose the name wordsmith since spree-blog already exists. I decided I wanted something different so came up with the unique name.
