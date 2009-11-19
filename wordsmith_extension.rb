@@ -44,7 +44,7 @@ class WordsmithExtension < Spree::Extension
       preference :wordsmith_post_comment_default, :integer, :default => 1
       preference :wordsmith_post_status_default, :integer, :default => 0
       preference :wordsmith_mailer_from, :string, :default => 'blog@localhost.com'
-      preference :wordsmith_rss_description, :string, :default => 'Martha Daniels blog posts on architectural concepts and home design.'
+      preference :wordsmith_rss_description, :string, :default => 'description about your main post rss.'
     end
     
     # TODO: Not sure I like this solution for the long term because you cannot control placement in view.
