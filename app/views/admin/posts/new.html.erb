@@ -1,4 +1,6 @@
-<h1>New post</h1>
+<%= render :partial => 'admin/shared/wordsmith_sub_menu' %>
+
+<h1><%= t("new-post") %></h1>
 
 <%= render :partial => 'form', :locals => { :button_name => t("create")} %>
 

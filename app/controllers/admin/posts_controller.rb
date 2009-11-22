@@ -14,8 +14,7 @@ class Admin::PostsController < Admin::BaseController
   def edit
     @post = Post.find(params[:id])
   end
-
-
+  
   create.wants.html {redirect_to admin_posts_path}
   update.wants.html {redirect_to admin_posts_path}
 end 

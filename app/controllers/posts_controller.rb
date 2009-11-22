@@ -17,9 +17,7 @@ class PostsController < Spree::BaseController
     wants.rss
   end
     
-    
   def tags
-      #@tag = Tag.find_by_name(params[:tag_name])
       @posts = Post.publish.find_all_tagged_with(params[:tag_name]).paginate :page => params[:page]    
   end
     

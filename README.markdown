@@ -64,6 +64,15 @@ http://localhost:3000/<post-name>.rss - Comments for individual post
 
 http://localhost:3000/comments.rss - Recent comments for entire site
 
+Pages
+-----
+
+Integrated portions of spree-static-content, http://peterberkenbosch.github.com/spree-static-content/
+
+Under Admin section add pages for static-content.
+
+Use helper page_link() to print link to page.
+
 
 Settings
 ------------

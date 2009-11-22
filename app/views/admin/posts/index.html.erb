@@ -17,7 +17,7 @@
       <td><%= post.tag_list %></td>
       <td><%= post.comments_count %></td>
       <td><%= (post.published_at.blank? ? post.updated_at : post.published_at).strftime("%B %d, %Y at %I:%M%p") %></td>
-      <td><%= link_to t("view"), post %> | <%= link_to t("edit"), [:edit, :admin, post] %> | <%= link_to t("delete"), [:admin, post], :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= t("view") %> | <%= link_to t("edit"), [:edit, :admin, post] %> | <%= link_to t("delete"), [:admin, post], :confirm => 'Are you sure?', :method => :delete %></td>
 
     </tr>
   <% end %>

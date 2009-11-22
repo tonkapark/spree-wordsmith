@@ -1,0 +1,22 @@
+<%= render :partial => 'admin/shared/wordsmith_sub_menu' %>
+
+<h1><%= t("pages") %></h1>
+
+<table>
+  <tr>
+    <th>Page</th>
+    <th>Author</th>
+    <th>Date</th>
+  </tr>
+  <% for page in @pages %>
+    <tr>
+      <td><%= link_to h(page.title), [:edit,:admin,page] %> (<%= page.is_active == 1 ? t("published") : t("draft") %>) </td>      
+      <td><%= link_to page.user.display_name, [:admin, page.user] %></td>
+      <td><%= (page.published_at.blank? ? page.updated_at : page.published_at).strftime("%B %d, %Y at %I:%M%p") %></td>
+      <td><%=  t("view") %> | <%= link_to t("edit"), [:edit, :admin, page] %> | <%= link_to t("delete"), [:admin, page], :confirm => 'Are you sure?', :method => :delete %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to t("new-page"), new_admin_page_path %></p>
