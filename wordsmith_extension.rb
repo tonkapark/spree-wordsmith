@@ -33,9 +33,7 @@ class WordsmithExtension < Spree::Extension
 
     # make your helper avaliable in all views
     Spree::BaseController.class_eval do
-      helper PostsHelper
-      helper CommentsHelper
-      
+      helper PostsHelper      
       
       before_filter :render_page_if_exists
       
@@ -78,8 +76,7 @@ class WordsmithExtension < Spree::Extension
     end    
     
     User.class_eval do
-        has_many :posts
-        has_many :comments      
+        has_many :ws_items
         
         attr_accessible :display_name        
     end

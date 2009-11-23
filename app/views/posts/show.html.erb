@@ -1,7 +1,3 @@
-<% content_for :head do %>
-  <%= javascript_include_tag 'jquery-1.3.2.min', 'wordsmith' %>
-  <link rel="alternate" type="application/rss+xml" title="#{t("post")} #{t("comments")} RSS" href="<%= post_url(@post, :format => :rss) %>" />
-<% end %>
    
 <%= render :partial => 'shared/wordsmith_content_for'%>
 
@@ -10,20 +6,5 @@
 
 <div id="comments">
 
-  <% unless @post.comments.empty? %>
-    <h2><%= link_to image_tag('icons/feed.gif', :alt => "#{t("post")} #{t("comments")} RSS", :size => '16x16'), post_path(@post, :format => 'rss') %>
-    <%= pluralize @post.comments_count, t("comment"), t("comments") %></h2>
-    <% @post.comments.each do |comment| %>
-      <%= render :partial => comment %>      
-    <% end %>
-  <% end %>
 
- 
-<% if @post.commentable == 1 %>
-  <hr />
-  <h2><%= t("new_comment") %></h2>
-  <%= render :partial => 'comments/form' %>
-<% else %>
-  <p><%= t("comments_closed") %></p>
-<% end %>
 </div>

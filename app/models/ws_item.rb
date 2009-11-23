@@ -4,7 +4,6 @@ class WsItem < ActiveRecord::Base
   is_taggable :tags
   
   belongs_to :user
-  has_many :comments, :dependent => :destroy
   
   before_validation :format_markup
   before_validation :generate_permalink

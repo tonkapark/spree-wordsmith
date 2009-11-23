@@ -1,7 +1,0 @@
-<p>A new comment was added to your post, "<%= h(@comment.post.title) %>"</p>
-
-<p>
-Link to post: <%= link_to h(@comment.post.title), post_url(@comment.post, :host=> Spree::Config[:site_url]) %><br/>
-</p>
-
-<p><%= link_to Spree::Config[:site_name], "http://#{Spree::Config[:site_url]}" %></p>
