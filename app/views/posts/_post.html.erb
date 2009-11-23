@@ -3,8 +3,11 @@
 		<div class="post-date"><%= post.published_at.strftime("%A, %B %d, %Y") %></div>
 		<h2 class="post-title"><%= link_to_unless_current (post.title == '' ? '[Untitled]' : h(post.title)), post, {:title => post.title, :alt => "Link to #{post.title}"} %></h2>
 		<div class="post-meta">
-		  <% unless post.user.display_name.blank? %>By <%= post.user.display_name %> <% end %> - <%= t("comments") %>
+		  <% unless post.user.display_name.blank? %>By <%= post.user.display_name %> <% end %> - <%= link_to "comments", post_path(post, :anchor => "disqus_thread") %>
 		</div>
 		<div class="post-content"><%= post.body %></div>
 		<div class="post-meta"><% unless post.tags.empty? %><%= t("tags") %>: <%= linked_tag_list(post.tags) %><% end %></div>
 	</div>
+
+
+<%= disqus_comment_counts %>

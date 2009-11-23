@@ -2,18 +2,26 @@
 # require_dependency 'application'
 
 class WordsmithExtension < Spree::Extension
-  version "1.2"
-  description "A blog/news extension for spree"
-  url "http://tonkapark.com/"
+  version "2.0"
+  description "A blog/cms extension for spree"
+  url "http://github.com/tonkapark/spree-wordsmith"
 
   # Please use blog/config/routes.rb instead for extension routes.
 
   def self.require_gems(config)
     config.gem 'is_taggable'
     config.gem 'RedCloth'
+    config.gem 'disqus'
   end
   
   def activate
+
+    Disqus::defaults[:account] = "my_disqus_account_name"
+    # Optional, only if you're using the API
+    Disqus::defaults[:api_key] = "my_disqus_api_key"    
+    unless RAILS_ENV == "production"
+      Disqus::defaults[:developer] = true
+    end
 
     # Add your extension tab to the admin.
     # Requires that you have defined an admin controller:
@@ -63,7 +71,6 @@ class WordsmithExtension < Spree::Extension
       preference :wordsmith_posts_recent, :integer, :default => 15
       preference :wordsmith_post_comment_default, :integer, :default => 1
       preference :wordsmith_post_status_default, :integer, :default => 0
-      preference :wordsmith_mailer_from, :string, :default => 'blog@localhost.com'
       preference :wordsmith_rss_description, :string, :default => 'description about your main post rss.'
     end
     

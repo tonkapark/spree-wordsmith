@@ -3,8 +3,8 @@
 
 <%= render :partial => @post %>
 
-
+<% if @post.commentable == 1 %>
 <div id="comments">
-
-
+  <%= disqus_thread %>
 </div>
+<% end %>

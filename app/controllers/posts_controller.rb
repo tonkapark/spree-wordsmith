@@ -7,14 +7,9 @@ class PostsController < Spree::BaseController
     wants.html
     wants.rss
   end
-
-  show.before do    
-    @comment = Comment.new(:post_id => @post.id)  
-  end
     
   show.response do |wants|
     wants.html
-    wants.rss
   end
     
   def tags

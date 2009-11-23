@@ -38,11 +38,7 @@ Comments
 
 Comments can be opened or closed.  The comment form displays on the post page when enabled for the specific post.
 
-Anonymous comments are not allowed. A name and email are required. Still working on integrating into the spree user model.
-
-A helper function is used to make comments safe and even allow some html for formatting.
-
-When a comment is posted an email will be sent to the author of the post.
+Comments are now managed by Disqus via the disqus gem, http://github.com/norman/disqus/
 
 
 Blog
