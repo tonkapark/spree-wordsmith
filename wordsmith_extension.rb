@@ -41,7 +41,7 @@ class WordsmithExtension < Spree::Extension
 
     # make your helper avaliable in all views
     Spree::BaseController.class_eval do
-      helper PostsHelper      
+      helper WordsmithHelper      
       
       before_filter :render_page_if_exists
       

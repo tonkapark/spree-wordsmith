@@ -1,7 +1,11 @@
-Wordsmith 2.0
+Wordsmith 1.9
 =========
 
-A blog/news extension for spree. Includes comments. Chose the name wordsmith since spree-blog already exists. I decided I wanted something different so came up with the unique name.
+A blog/cms extension for spree. Admin users in Spree can create blog posts and static pages. The comment system has been outsourced using the Disqus system. Posts and pages can have commenting disabled allowing the site to work without the Disqus api enabled.
+
+Wordsmith has provided the basic views and a stylesheet that can easily be overridden in your site extension. Also several helpers exist to allow tags, posts and pages to be accesible in your site views.
+
+Wordsmith uses concepts from many projects and tries to integrate them nicely with Spree making it easy to use the extension in your own site.
 
 
 Installation
@@ -26,21 +30,19 @@ New Posts can be created in the admin section http://localhost:3000/admin/posts
 
 Posts have unique permalinks created for all new post entries. The permalink can be modified after initial save.
 
-By default the excerpt will be created with the first 50 characters of the body.
-
 RedCloth is used for post formatting.
 
-is_taggable gem is used for adding tags to each post.
+is_taggable gem is used for adding tags to each post. A helper linked_tag_list is provided to display a list of the link tags to filter by.
 
 
 Comments
 --------
 
-Comments can be opened or closed.  The comment form displays on the post page when enabled for the specific post.
+Comments can be opened or closed for a post or page.  The comment form displays on the post page when enabled for the specific post.
 
-Comments are now managed by Disqus via the disqus gem, http://github.com/norman/disqus/
+Comments are now managed by Disqus via the disqus gem, http://github.com/norman/disqus/. Management of spam and comment moderation is done through the disqus ui.
 
-Create disqus account at http://disqus.com/. 
+Create disqus account at http://disqus.com/.  
 
 
 Blog
@@ -48,8 +50,8 @@ Blog
 
 View the blog at http://localhost:3000/blog or the defined slug from the preferences.
 
-A partial for the sidebar is available that shows recent posts.
- 
+Use helper post_link_list(limit) to get a list of recent post links.
+
 
 RSS
 -----
@@ -64,7 +66,7 @@ Integrated portions of spree-static-content, http://peterberkenbosch.github.com/
 
 Under Admin section add pages for static-content.
 
-Use helper page_link() to print link to page.
+Use helper page_link() to print a link to page, based on ID or Permalink.
 
 
 Settings
@@ -80,17 +82,11 @@ TODO
 
 - improve permalinks for posts
 
-- wysiwyg editor for blog posts
-
-- better integration with Spree users on comments and posts
-
-- spam filtering for comments
-
-- filtering by tags
-
-- tag sidebar partial
+- wysiwyg editor for blog posts and pages.
 
 - tests
+
+- store and save links (aka blogroll)
 
 
 Credits
