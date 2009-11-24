@@ -23,6 +23,18 @@ Edit preferences in wordsmith_extension.rb
 
 script/server
 
+Setup
+------
+
+in wordsmith_extension.rb add your disqus account identifier if you plan to use comments.
+
+You can edit the preferences in the extension.rb file or in the http://localhost:3000/admin/wordsmith_settings ui.
+
+The blog home slug requires a server restart so it can only be edited in the extension file.
+
+Wordsmith adds a new column to the users model, display_name. For each admin user that will be blogging a display_name should be given. This can be used for display as the post author. The display_name field is made available only on the admin user view by default but could easily be extended to the public user views.
+
+
 Posts
 -------
 
@@ -52,11 +64,15 @@ View the blog at http://localhost:3000/blog or the defined slug from the prefere
 
 Use helper post_link_list(limit) to get a list of recent post links.
 
+Views are in folder extension/app/views/posts
+
 
 RSS
 -----
 
 http://localhost:3000/blog.rss - All Posts
+
+Customize RSS feed in extension/app/views/posts/index.rss.builder
 
 
 Pages
@@ -68,13 +84,23 @@ Under Admin section add pages for static-content.
 
 Use helper page_link() to print a link to page, based on ID or Permalink.
 
+Pages are displayed by the content route provided by Spree core. Customize the extension/app/views/content/show.html.erb file.
 
-Settings
-------------
 
-http://localhost:3000/admin/wordsmith_settings
 
-Default settings are set in the wordsmith_extension.rb file. There is also an wordsmith_settings screen in the admin section to manage the preference values. The blog home permalink requires a server restart so it can only be edited in the extension file.
+Tips
+--------
+
+You can add a blog link anywhere on your site or include the recent_articles partial.
+
+One option is to add the Blog link to the store_menu partial
+
+'<li><%= link_to t('blog'), posts_path %></li>'
+
+Use the wordsmith_content_for partial to include the wordsmith css and recent articles partial in the sidebar.
+
+'<%= render :partial => 'shared/wordsmith_content_for'%>'
+
 
 
 TODO

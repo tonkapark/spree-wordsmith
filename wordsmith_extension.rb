@@ -71,6 +71,8 @@ class WordsmithExtension < Spree::Extension
       preference :wordsmith_posts_recent, :integer, :default => 15
       preference :wordsmith_post_comment_default, :integer, :default => 1
       preference :wordsmith_post_status_default, :integer, :default => 0
+      preference :wordsmith_page_status_default, :integer, :default => 0
+      preference :wordsmith_page_comment_default, :integer, :default => 0
       preference :wordsmith_rss_description, :string, :default => 'description about your main post rss.'
     end
     
