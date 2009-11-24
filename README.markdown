@@ -1,4 +1,4 @@
-Wordsmith 1.9
+Wordsmith 2.0
 =========
 
 A blog/cms extension for spree. Admin users in Spree can create blog posts and static pages. The comment system has been outsourced using the Disqus system. Posts and pages can have commenting disabled allowing the site to work without the Disqus api enabled.
