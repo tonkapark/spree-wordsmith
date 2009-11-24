@@ -1,4 +1,4 @@
-Wordsmith 1.2
+Wordsmith 2.0
 =========
 
 A blog/news extension for spree. Includes comments. Chose the name wordsmith since spree-blog already exists. I decided I wanted something different so came up with the unique name.
@@ -40,6 +40,8 @@ Comments can be opened or closed.  The comment form displays on the post page wh
 
 Comments are now managed by Disqus via the disqus gem, http://github.com/norman/disqus/
 
+Create disqus account at http://disqus.com/. 
+
 
 Blog
 -----
@@ -52,13 +54,8 @@ A partial for the sidebar is available that shows recent posts.
 RSS
 -----
 
-There are 3 rss feeds. 
-
 http://localhost:3000/blog.rss - All Posts
 
-http://localhost:3000/<post-name>.rss - Comments for individual post
-
-http://localhost:3000/comments.rss - Recent comments for entire site
 
 Pages
 -----

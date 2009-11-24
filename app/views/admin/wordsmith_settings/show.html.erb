@@ -15,12 +15,7 @@
     <th scope="row"><%= t("wordsmith_posts_recent") %>:</th> 
     <td><%=  Spree::Config[:wordsmith_posts_recent] %></td>
   </tr>
-  
-  <tr>
-    <th scope="row"><%= t("wordsmith_mailer_from") %>:</th> 
-    <td><%=  Spree::Config[:wordsmith_mailer_from] %></td>
-  </tr>
-  
+
   <tr>
     <th scope="row"><%= t("wordsmith_post_status_default") %>:</th> 
     <td><%= (Spree::Config[:wordsmith_post_status_default] ? t("publish") : t("draft")) %></td>

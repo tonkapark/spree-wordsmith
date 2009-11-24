@@ -16,11 +16,6 @@
   </p>	
   
   <p>
-	<label><%= t('wordsmith_mailer_from') %></label>
-	<%= text_field_tag('preferences[wordsmith_mailer_from]', Spree::Config[:wordsmith_mailer_from])%>
-  </p>	
-  
-  <p>
   <label><%= t('wordsmith_post_status_default') %></label>
   <%= radio_button_tag('preferences[wordsmith_post_status_default]', 1, Spree::Config[:wordsmith_post_status_default]) %> <%= t("publish") %>
   <%= radio_button_tag('preferences[wordsmith_post_status_default]', 0, Spree::Config[:wordsmith_post_status_default] ) %> <%= t("draft") %>
