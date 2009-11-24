@@ -21,10 +21,6 @@
       <%= f.text_area :excerpt, { :rows=>"3", :style => "height:100%; width:100%;" } %>
     </p>
   
-  <p>
-<%= f.select :type, [['<normal>', '']] + Post.descendants.map { |p| [p.title, p.name] }.sort_by { |p| p.first }   %>
-</p>
-  
   <div id="extended-metadata">
     <p>
       <%= f.label :meta_keywords, t("meta_keywords") %> (comma separated)<br />
