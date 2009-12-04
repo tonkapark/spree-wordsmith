@@ -1,8 +1,10 @@
 ---
-en-US:
+en-GB:
     Wordsmith: Wordsmith
     posts: Posts
     post: Post
+    pages: Pages
+    page: Page
     comment: Comment
     comments: Comments
     new_comment: New Comment
@@ -32,6 +34,8 @@ en-US:
     open: Open
     closed: Closed
     view_blog: View Blog
+    blog: Blog
     comments_for: comments for
     recent: Recent
     no_posts_found: No posts found
+    new-page: New Page
