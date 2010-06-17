@@ -23,21 +23,6 @@ class WordsmithExtension < Spree::Extension
       Disqus::defaults[:developer] = true
     end
 
-    # Add your extension tab to the admin.
-    # Requires that you have defined an admin controller:
-    # app/controllers/admin/yourextension_controller
-    # and that you mapped your admin in config/routes
-
-    Admin::BaseController.class_eval do
-      before_filter :add_wordsmith_tab
-    #
-      def add_wordsmith_tab
-    #    # add_extension_admin_tab takes an array containing the same arguments expected
-    #    # by the tab helper method:
-    #    #   [ :extension_name, { :label => "Your Extension", :route => "/some/non/standard/route" } ]
-        add_extension_admin_tab [ :wordsmith, { :label => t("Wordsmith"), :route => :admin_posts } ]
-      end
-    end
 
     # make your helper avaliable in all views
     Spree::BaseController.class_eval do
@@ -75,14 +60,7 @@ class WordsmithExtension < Spree::Extension
       preference :wordsmith_page_comment_default, :integer, :default => 0
       preference :wordsmith_rss_description, :string, :default => 'description about your main post rss.'
     end
-    
-    # TODO: Not sure I like this solution for the long term because you cannot control placement in view.
-    Admin::UsersController.class_eval do
-      before_filter :add_display_name_field
-      def add_display_name_field
-        @extension_partials << 'display_name'
-      end
-    end    
+      
     
     User.class_eval do
         has_many :ws_items
